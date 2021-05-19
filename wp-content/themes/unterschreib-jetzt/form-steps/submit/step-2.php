@@ -10,6 +10,7 @@ $uuid = $_POST["uuid"];
 $address = $_POST["address"];
 $plz = $_POST["plz"];
 $place = $_POST["place"];
+$birthday = $_POST["birthday"];
 if (isset($_POST["nosig"]) && $_POST["nosig"] != "") {
     $nosig = $_POST["nosig"];
 } else {
@@ -28,6 +29,7 @@ $query =
                 `bogen_address` = %s,
                 `bogen_plz` = %s,
                 `bogen_ort` = %s,
+                `bogen_birthday` = %s,
                 `bogen_drucker` = %s,
                 `bogen_nosig` = %s,
                 `bogen_notreturned` = %s
@@ -35,6 +37,7 @@ $query =
             $address,
             $plz,
             $place,
+            $birthday,
             $drucker,
             $nosig,
             $nosig,

@@ -40,6 +40,7 @@ $i18n = array(
     "address" => "Adresse (Strasse Nr.)",
     "plz" => "PLZ",
     "place" => "Ort",
+    "birthday" => "Geburtstag",
     "nosig" => "Anzahl Unterschriften",
     "nosig-helper" => "Wenn du mehr Unterschriften als nur deine eigene sammeln möchtest, trage das bitte hier ein.",
     "printer" => "Ich habe keinen Drucker, bitte schickt mir einen Unterschriftenbogen zu.",

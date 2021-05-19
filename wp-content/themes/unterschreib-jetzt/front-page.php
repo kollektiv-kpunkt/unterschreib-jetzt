@@ -125,6 +125,7 @@ $mobi_short = str_replace($tags, $replace, $mobiText);
                             <input type="hidden" name="postID" value="<?= get_the_ID() ?>">
                             <button type="submit" class="fullwidth white"><?= $i18n["sign-submit"] ?></button>
                             <div class="form-alert"></div>
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                         </form>
                     </div>
                 </div>
