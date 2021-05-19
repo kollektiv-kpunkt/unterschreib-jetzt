@@ -1,0 +1,30 @@
+#main-content {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+main {
+    width: calc((100vw / 3) * 2);
+    padding: min(5vw, 96px);
+    box-sizing: border-box;
+}
+
+#page-content {
+    max-width: 21cm;
+    margin: auto
+}
+
+aside {
+    width: calc(100vw / 3);
+    background-color: var(--red);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+
+.pagetitle {
+    margin-top: 0;
+}

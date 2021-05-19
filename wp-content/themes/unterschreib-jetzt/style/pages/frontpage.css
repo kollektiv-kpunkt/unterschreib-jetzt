@@ -1,0 +1,33 @@
+.excerpt {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.detail-cont {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail {
+    min-width: calc(22.5% - 2rem);
+    margin-right: 2rem;
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.detail i {
+    font-size: 1.5rem;
+    color: var(--red);
+    margin-right: 0.5rem;
+}
+
+.detail * {
+    margin: auto 0
+}
+
+.feaimg {
+    margin-top: 2.5rem;
+    width: 100%;
+}

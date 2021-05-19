@@ -1,0 +1,64 @@
+{
+    "key": "group_60a4224b57b32",
+    "title": "03 Mobi Nachrichten",
+    "fields": [
+        {
+            "key": "field_60a4236748de9",
+            "label": "Mobi CtA",
+            "name": "mobi_cta",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Eine Initiative zu sammeln ist immer anstrengend: Aber wenn du uns dabei hilfst, 3 Personen von unserem Anliegen zu überzeugen, dann können wir es schaffen!",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_60a4225327738",
+            "label": "Mobi Nachrichten",
+            "name": "mobi_nachrichten",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ich habe gerade eine Initiative auf unterschreib.jetzt unterschrieben! Unterschreib du sie bitte auch:",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "modified": 1621369792
+}
