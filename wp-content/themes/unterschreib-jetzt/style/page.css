@@ -62,7 +62,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .form-inner {
@@ -70,14 +70,19 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow-y: hidden;
 }
 
-.form-outer::-webkit-scrollbar {
+.form-cont {
+    overflow-y: scroll;
+}
+
+.form-cont::-webkit-scrollbar {
     display: none;
 }
 
 /* Hide scrollbar for IE, Edge add Firefox */
-.form-outer {
+.form-cont {
     -ms-overflow-style: none;
     scrollbar-width: none; /* Firefox */
 }
@@ -134,7 +139,7 @@ aside {
         margin: auto;
         padding: 2vw;
         padding-top: 2rem;
-        padding-bottom: calc(8vh + 1rem);
+        padding-bottom: calc(3.5rem + 1rem);
     }
 
     aside {
@@ -144,7 +149,7 @@ aside {
         left: 50%;
         top: unset;
         bottom: -100%;
-        transform: translate(-50%, -8vh);
+        transform: translate(-50%, -3.5rem);
         right: unset;
         height: calc(100%);
         color: var(--white);
@@ -176,16 +181,20 @@ aside {
         border-radius: 10px 10px 0 0;
         overflow: hidden;
         background-color: var(--red);
-        height: 8vh;
+        height: 3.5rem;
     }
     
     #mobile-fab span {
         display: flex;
         margin: auto;
     }
+    
+    #mobile-fab span * {
+        margin: auto;
+    }
 
     #mobile-fab h4 {
-        margin: 0;
+        margin: auto;
         margin-right: 1rem;
     }
     

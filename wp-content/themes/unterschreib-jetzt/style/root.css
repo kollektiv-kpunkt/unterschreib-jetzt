@@ -21,3 +21,7 @@ body {
 :focus {
     outline: none;
 }
+
+html.noscroll {
+    overflow-y: hidden;
+}
