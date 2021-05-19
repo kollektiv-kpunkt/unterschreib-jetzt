@@ -14,6 +14,7 @@ include __DIR__ . "/../i18n/de.php";
                     <input type="text" name="address" placeholder="<?= $i18n["address"] ?> *" required>
                     <input type="text" name="plz" placeholder="<?= $i18n["plz"] ?> *" required>
                     <input type="text" name="place" placeholder="<?= $i18n["place"] ?> *" required>
+                    <input type="date" name="birthday" placeholder="<?= $i18n["birthday"] ?> *" required>
                     <input type="number" name="nosig" placeholder="<?= $i18n["nosig"] ?>">
                     <small class="form-helper"><?= $i18n["nosig-helper"] ?></small>
                     <div class="form-group" id="noprint-group">

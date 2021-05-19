@@ -115,4 +115,8 @@
     color: var(--white);
 }
 
+.signform ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .signform input::-webkit-input-placeholder{color:var(--white)}.signform input::-ms-input-placeholder{color:var(--white)}.signform input:-ms-input-placeholder{color:var(--white)}.signform input::-moz-placeholder{opacity:1;color:var(--white)}.signform input:-moz-placeholder{opacity:1;color:var(--white)}.signform input::placeholder{color:var(--white)}
