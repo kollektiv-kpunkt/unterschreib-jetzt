@@ -10,8 +10,21 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 
 $mobimsg_encode = urlencode(get_field("mobi_nachrichten") . " " . $current_url);
 
-$percentage = 34;
+$required = number_format(get_field("anzahl_unterschriften"), 0, ",", "'");
 
+$promised = number_format($wpdb->get_results("SELECT sum(bogen_nosig) as promised FROM {$wpdb->prefix}bogens")[0]->promised, 0, ",", "'");
+
+$percentage = $wpdb->get_results("SELECT sum(bogen_nosig) as promised FROM {$wpdb->prefix}bogens")[0]->promised / get_field("anzahl_unterschriften") * 100;
+
+if ($percentage >= 100) {
+    $percentage = 100;
+}
+
+$mobiText = get_field("mobi_short");
+$tags = array("[required]", "[promised]");
+$replace = array($required, $promised);
+
+$mobi_short = str_replace($tags, $replace, $mobiText);
 
 ?>
 
@@ -60,11 +73,11 @@ $percentage = 34;
             <div class="cta-cont">
                 <h2 class="red"><?= $i18n["help-us"] ?></h2>
                 <p class="cta-text"><?= the_field("mobi_cta") ?></p>
-                <div class="cta-buttongrid">
-                    <a href="https://api.whatsapp.com/send?text=<?= $mobimsg_encode?>" target="_blank" class="button cta-button" id="whatsapp"><?= $i18n["share-whatsapp"] ?></a>
-                    <a href="https://t.me/share/url?url=<?=urlencode($current_url)?>&text=<?= $mobimsg_encode ?>" target="_blank" class="button cta-button" id="telegram"><?= $i18n["share-telegram"] ?></a>
-                    <a href="https://twitter.com/intent/tweet?text=<?= $mobimsg_encode ?>" target="_blank" class="button cta-button" id="twitter"><?= $i18n["share-twitter"] ?></a>
-                    <a href="#" target="_blank" class="button cta-button" id="email"><?= $i18n["share-email"] ?></a>
+                <div class="buttongrid">
+                    <a href="https://api.whatsapp.com/send?text=<?= $mobimsg_encode?>" target="_blank" class="button grid-button" id="whatsapp"><?= $i18n["share-whatsapp"] ?></a>
+                    <a href="https://t.me/share/url?url=<?=urlencode($current_url)?>&text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="telegram"><?= $i18n["share-telegram"] ?></a>
+                    <a href="https://twitter.com/intent/tweet?text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="twitter"><?= $i18n["share-twitter"] ?></a>
+                    <a href="#" target="_blank" class="button grid-button" id="email"><?= $i18n["share-email"] ?></a>
                 </div>
             </div>
             <div class="bottom-bar">
@@ -75,44 +88,49 @@ $percentage = 34;
             </div>
         </div>
     </main>
-    <aside>
-        <div id="mobile-fab"><span><h4><?= $i18n["sign-now"] ?></h4><i class="ri-arrow-up-s-line"></i></span></div>
-        <div class="form-outer">
-            <div class="form-inner">
-                <div class="form-cont">
-                    <h3 class="pagetitle"><?= $i18n["sign-now"] ?></h3>
-                    <div class="close-icon">
-                        <i class="ri-close-line"></i>
-                        <span class="buttonfont"><?= $i18n["close"] ?></span>
-                    </div>
-                    <p class="mobi-short"><?= the_field("mobi_short") ?></p>
-                    <div id="progress-container">
-                        <div id="arrow-container" style="margin-left: 0%">
-                            <div id="arrow-inner">
-                                <small><span id="arrow-percentage"></span>%</small>
-                                <i class="ri-arrow-down-line"></i>
+    <div id="ajax">
+        <aside>
+            <div id="mobile-fab"><span><h4><?= $i18n["sign-now"] ?></h4><i class="ri-arrow-up-s-line"></i></span></div>
+            <div class="form-outer">
+                <div class="form-inner">
+                    <div class="form-cont">
+                        <h3 class="pagetitle"><?= $i18n["sign-now"] ?></h3>
+                        <div class="close-icon">
+                            <i class="ri-close-line"></i>
+                            <span class="buttonfont"><?= $i18n["close"] ?></span>
+                        </div>
+                        <p class="mobi-short"><?= $mobi_short ?></p>
+                        <div id="progress-container">
+                            <div id="arrow-container" style="margin-left: 0%">
+                                <div id="arrow-inner">
+                                    <small><span id="arrow-percentage"></span>%</small>
+                                    <i class="ri-arrow-down-line"></i>
+                                </div>
+                            </div>
+                            <div id="progress-outer">
+                                <div id="progress-inner" style="width: 0%">
+                                </div>
                             </div>
                         </div>
-                        <div id="progress-outer">
-                            <div id="progress-inner" style="width: 0%">
+                        <form action="#" data-step="1" class="signform">
+                            <input type="text" name="fname" placeholder="<?= $i18n["fname"] ?> *" required>
+                            <input type="text" name="lname" placeholder="<?= $i18n["lname"] ?> *" required>
+                            <input type="text" name="email" placeholder="<?= $i18n["email"] ?> *" required>
+                            <input type="tel" name="phone" placeholder="<?= $i18n["phone"] ?>">
+                            <div class="form-group">
+                                <input type="checkbox" id="optin" name="optin" value="1" checked>
+                                <label for="optin"><?= $i18n["optin"] ?></label>
                             </div>
-                        </div>
+                            <input type="hidden" name="uuid" value="<?= uniqid("signature_") ?>">
+                            <input type="hidden" name="postID" value="<?= get_the_ID() ?>">
+                            <button type="submit" class="fullwidth white"><?= $i18n["sign-submit"] ?></button>
+                            <div class="form-alert"></div>
+                        </form>
                     </div>
-                    <form action="#" data-step="1" class="signform">
-                        <input type="text" name="fname" placeholder="<?= $i18n["fname"] ?> *" required>
-                        <input type="text" name="lname" placeholder="<?= $i18n["lname"] ?> *" required>
-                        <input type="text" name="email" placeholder="<?= $i18n["email"] ?> *" required>
-                        <input type="tel" name="phone" placeholder="<?= $i18n["phone"] ?>">
-                        <div class="form-group">
-                            <input type="checkbox" id="optin" name="optin" value="1" checked>
-                            <label for="optin"><?= $i18n["optin"] ?></label>
-                        </div>
-                        <button type="submit" class="fullwidth white"><?= $i18n["sign-submit"] ?></button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </aside>
+        </aside>
+    </div>
 
 <?php endwhile; else: ?>
 

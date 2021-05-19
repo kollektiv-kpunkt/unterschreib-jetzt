@@ -34,7 +34,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Um unsere Initiative zur Abstimmung zu bringen, benötigen wir [required] Unterschriften. Bisher haben wir schon [promised] Unterschriften zusammen: Sei du auch dabei und unterschreibe jetzt!",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -60,5 +60,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621369525
+    "modified": 1621440326
 }

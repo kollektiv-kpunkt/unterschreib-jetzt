@@ -1,9 +1,10 @@
 <?php
+require_once(__DIR__ . "/../../../../wp-load.php");
 global $i18n;
 include __DIR__ . "/../i18n/de.php";
 ?>
 
-<aside>
+<aside class="step">
     <div class="form-outer">
         <div class="form-inner">
             <div class="form-cont">
@@ -15,7 +16,13 @@ include __DIR__ . "/../i18n/de.php";
                     <input type="text" name="place" placeholder="<?= $i18n["place"] ?> *" required>
                     <input type="number" name="nosig" placeholder="<?= $i18n["nosig"] ?>">
                     <small class="form-helper"><?= $i18n["nosig-helper"] ?></small>
+                    <div class="form-group" id="noprint-group">
+                        <input type="checkbox" id="drucker" name="drucker" value="1">
+                        <label for="drucker"><?= $i18n["printer"] ?></label>
+                    </div>
+                    <input type="hidden" name="uuid">
                     <button type="submit" class="fullwidth white"><?= $i18n["sign-submit"] ?></button>
+                    <div class="form-alert"></div>
                 </form>
             </div>
         </div>

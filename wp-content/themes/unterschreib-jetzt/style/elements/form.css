@@ -48,3 +48,36 @@ input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:b
 input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before { 
 	letter-spacing: 7.5px;
 }
+
+/* ALERT */
+
+.form-alert {
+    padding: 0.75rem;
+    background-color: var(--alertbg);
+    color: var(--alertcolor);
+    border: 2px solid var(--alertcolor);
+    border-radius: 3px;
+    line-height: 1.25;
+    display: none;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-alert.show {
+    display: block;
+}
+
+.form-alert.error {
+    --alertbg: #f8d7da;
+    --alertcolor: var(--red);
+}
+
+.form-alert.success {
+    --alertbg: #d4edda;
+    --alertcolor: #155724;
+}
+
+.form-alert.warning {
+    --alertbg: #fff3cd;
+    --alertcolor: var(--orange);
+}

@@ -27,28 +27,10 @@
     margin: auto 0
 }
 
-.feaimg {
-    margin-top: 2.5rem;
-    width: 100%;
-}
-
 /* CTA */
 
 .cta-cont {
     margin-bottom: 4rem;
-}
-
-.cta-buttongrid {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.cta-button {
-    width: calc(50% - 0.5rem);
-    margin-bottom: 1rem;
-    box-sizing: border-box;
 }
 
 #whatsapp {
@@ -71,28 +53,6 @@
     --btnbordercolor: #1DA1F2;
 }
 
-@media only screen and (max-width: 1180px) {
-    .cta-button {
-        width: 100%;
-    }
-}
-
-.bottom-bar {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bottom-bar small {
-    margin-right: 1.5rem;
-    color: var(--grey);
-    margin-bottom: 0.5rem
-}
-
-.bottom-bar small a {
-    color: var(--grey);
-    
-}
-
 
 /* ASIDE */
 
@@ -111,7 +71,7 @@
 #arrow-inner {
     display: flex;
     width: fit-content;
-    transform: translate(-70%,0);
+    transform: translate(-75%,0);
 }
 
 #arrow-inner * {

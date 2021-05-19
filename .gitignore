@@ -18,3 +18,6 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+wp-content/themes/unterschreib-jetzt/config/config.php
+
+wp-content/themes/unterschreib-jetzt/bogen/*

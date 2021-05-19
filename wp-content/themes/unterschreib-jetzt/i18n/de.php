@@ -42,13 +42,23 @@ $i18n = array(
     "place" => "Ort",
     "nosig" => "Anzahl Unterschriften",
     "nosig-helper" => "Wenn du mehr Unterschriften als nur deine eigene sammeln möchtest, trage das bitte hier ein.",
+    "printer" => "Ich habe keinen Drucker, bitte schickt mir einen Unterschriftenbogen zu.",
     
     // STEP 3
-    "thx" => "Danke für deine Unterstützung!",
+    "thx" => "Danke für deine Unterstützung",
     "thx-text" => "Danke, dass du unsere Initiative unterstützt! Du hast eine E-Mail mit deinem persönlichen Unterschriftenbogen erhalten. Druck diesen aus, unterschreibe ihn noch, klebe ihn zu und schicke ihn uns zurück. Danke nochmals für deine Hilfe!",
+    "donate-text" => "Eine Kampagne kostet immer viel Geld. Wenn du es dir leisten kannst, würden wir uns sehr über eine Spende freuen:",
+    "donate-10" => "10 Fr. spenden",
+    "donate-30" => "30 Fr. spenden",
+    "donate-50" => "50 Fr. spenden",
+    "donate-80" => "80 Fr. spenden",
 
     // MISC
-    "close" => "Schliessen"
+    "close" => "Schliessen",
+    "back" => "Zurück",
+    "error" => "Da ist etwas schief gelaufen... Bitte versuch es nochmals",
+    "email-from" => "UNTERSCHREIB JETZT - Deine Unterschrift",
+    "donate-page" => "/spenden"
 
 )
 
