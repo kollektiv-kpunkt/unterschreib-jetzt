@@ -24,6 +24,7 @@ include __DIR__ . "/../i18n/de.php";
                     <input type="hidden" name="uuid">
                     <button type="submit" class="fullwidth white"><?= $i18n["sign-submit"] ?></button>
                     <div class="form-alert"></div>
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </form>
             </div>
         </div>
