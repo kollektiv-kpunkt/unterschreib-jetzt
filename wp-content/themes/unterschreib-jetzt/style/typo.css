@@ -29,9 +29,14 @@ h5{font-size: 1rem;}
 h1.red,h2.red,h3.red,h4.red,h5.red{color: var(--red);}
 
 b,strong {font-weight: 600;}
-small{font-size:0.75rem; line-height: 1.25;display:block}
+small{font-size:0.8rem; line-height: 1.25;display:block}
+small.form-helper{
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
 
-.buttonfont, .button, button{
+.buttonfont, .button, button, input{
     font-size:1rem;
     line-height: 0.9;
     letter-spacing: 0.1em;
@@ -49,6 +54,14 @@ bf-2 {
 
 @media only screen and (max-width: 1500px) {
     html {font-size: 100%;}
+}
+
+@media only screen and (max-width: 480px) {
+    h1{font-size: 2.75rem;}
+    h2{font-size: 2rem;}
+    h3{font-size: 1.3rem;}
+    h4{font-size: 1rem;}
+    h5{font-size: 1rem;}
 }
 
 a{color: var(--red)}

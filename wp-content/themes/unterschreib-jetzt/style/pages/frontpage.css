@@ -31,3 +31,128 @@
     margin-top: 2.5rem;
     width: 100%;
 }
+
+/* CTA */
+
+.cta-cont {
+    margin-bottom: 4rem;
+}
+
+.cta-buttongrid {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cta-button {
+    width: calc(50% - 0.5rem);
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+#whatsapp {
+    --btnbgcolor: #25D366;
+    --btnbordercolor: #25D366;
+}
+
+#telegram {
+    --btnbgcolor: #0088CC;
+    --btnbordercolor: #0088CC;
+}
+
+#facebook {
+    --btnbgcolor: #4267B2;
+    --btnbordercolor: #4267B2;
+}
+
+#twitter {
+    --btnbgcolor: #1DA1F2;
+    --btnbordercolor: #1DA1F2;
+}
+
+@media only screen and (max-width: 1180px) {
+    .cta-button {
+        width: 100%;
+    }
+}
+
+.bottom-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bottom-bar small {
+    margin-right: 1.5rem;
+    color: var(--grey);
+    margin-bottom: 0.5rem
+}
+
+.bottom-bar small a {
+    color: var(--grey);
+    
+}
+
+
+/* ASIDE */
+
+#mobile-fab {
+    display: none;
+}
+
+.close-icon {
+    display: none;
+}
+
+#arrow-container {
+    margin-bottom: 0.25rem;
+}
+
+#arrow-inner {
+    display: flex;
+    width: fit-content;
+    transform: translate(-70%,0);
+}
+
+#arrow-inner * {
+    margin: auto 0;
+}
+
+#arrow-container i {
+    font-size: 2rem;
+    line-height: 0.75;
+}
+
+#amount-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#progress-outer {
+    display: flex;
+    background-color: var(--white);
+    width: 100%;
+    border-radius: 100px;
+    margin: 0 0 0.5rem 0;
+}
+
+#progress-inner {
+    margin: 0.25rem;
+    background-color: var(--red);
+    height: 1.5rem;
+    border-radius: 100px;
+}
+
+#arrow-container, #progress-inner {
+    transition: 1s ease-in-out margin-left, 1s ease-in-out width;
+}
+
+.signform {
+    margin-top: 2rem;
+}
+.signform input {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.signform input::-webkit-input-placeholder{color:var(--white)}.signform input::-ms-input-placeholder{color:var(--white)}.signform input:-ms-input-placeholder{color:var(--white)}.signform input::-moz-placeholder{opacity:1;color:var(--white)}.signform input:-moz-placeholder{opacity:1;color:var(--white)}.signform input::placeholder{color:var(--white)}

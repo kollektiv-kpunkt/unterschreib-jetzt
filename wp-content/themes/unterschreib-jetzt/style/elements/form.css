@@ -1,0 +1,50 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--black);
+    background-color: transparent;
+    font-size: 1.25rem;
+    padding: 0.3rem 0.5rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+input::-webkit-input-placeholder{color:var(--grey)}input::-ms-input-placeholder{color:var(--grey)}input:-ms-input-placeholder{color:var(--grey)}input::-moz-placeholder{opacity:1;color:var(--grey)}input:-moz-placeholder{opacity:1;color:var(--grey)}input::placeholder{color:var(--grey)}
+
+.input-group {
+    display: flex;
+}
+
+.input-group * {
+    margin: auto 0;
+}
+
+input[type=radio], input[type=checkbox] { 
+	display:none;
+    width: auto;
+} 
+
+input[type=radio] + label, input[type=checkbox] + label {
+    display: block;
+    padding-left: 1.5em;
+    text-indent: -.7em;
+    margin-bottom: 1rem;
+}
+
+input[type=radio] + label:before, input[type=checkbox] + label:before {
+	font-family: FontAwesome;
+	display: inline-block;
+	content: "\f096";
+	letter-spacing: 10px;
+	cursor: pointer;
+}
+
+input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before { 
+	content: "\f046";
+} 
+
+input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before { 
+	letter-spacing: 7.5px;
+}

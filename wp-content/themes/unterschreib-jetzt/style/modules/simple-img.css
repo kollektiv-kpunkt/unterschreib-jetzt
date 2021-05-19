@@ -1,0 +1,11 @@
+.simple-img {
+    max-width: 100%;
+    width: 100%;
+    filter: var(--dropshadow);
+    border-radius: 3px;
+}
+
+.img-desc {
+    font-style: italic;
+    color: var(--grey);
+}
