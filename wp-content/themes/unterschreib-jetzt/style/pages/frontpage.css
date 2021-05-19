@@ -1,0 +1,118 @@
+.excerpt {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.detail-cont {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail {
+    min-width: calc(22.5% - 2rem);
+    margin-right: 2rem;
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.detail i {
+    font-size: 1.5rem;
+    color: var(--red);
+    margin-right: 0.5rem;
+}
+
+.detail * {
+    margin: auto 0
+}
+
+/* CTA */
+
+.cta-cont {
+    margin-bottom: 4rem;
+}
+
+#whatsapp {
+    --btnbgcolor: #25D366;
+    --btnbordercolor: #25D366;
+}
+
+#telegram {
+    --btnbgcolor: #0088CC;
+    --btnbordercolor: #0088CC;
+}
+
+#facebook {
+    --btnbgcolor: #4267B2;
+    --btnbordercolor: #4267B2;
+}
+
+#twitter {
+    --btnbgcolor: #1DA1F2;
+    --btnbordercolor: #1DA1F2;
+}
+
+
+/* ASIDE */
+
+#mobile-fab {
+    display: none;
+}
+
+.close-icon {
+    display: none;
+}
+
+#arrow-container {
+    margin-bottom: 0.25rem;
+}
+
+#arrow-inner {
+    display: flex;
+    width: fit-content;
+    transform: translate(-75%,0);
+}
+
+#arrow-inner * {
+    margin: auto 0;
+}
+
+#arrow-container i {
+    font-size: 2rem;
+    line-height: 0.75;
+}
+
+#amount-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#progress-outer {
+    display: flex;
+    background-color: var(--white);
+    width: 100%;
+    border-radius: 100px;
+    margin: 0 0 0.5rem 0;
+}
+
+#progress-inner {
+    margin: 0.25rem;
+    background-color: var(--red);
+    height: 1.5rem;
+    border-radius: 100px;
+}
+
+#arrow-container, #progress-inner {
+    transition: 1s ease-in-out margin-left, 1s ease-in-out width;
+}
+
+.signform {
+    margin-top: 2rem;
+}
+.signform input {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.signform input::-webkit-input-placeholder{color:var(--white)}.signform input::-ms-input-placeholder{color:var(--white)}.signform input:-ms-input-placeholder{color:var(--white)}.signform input::-moz-placeholder{opacity:1;color:var(--white)}.signform input:-moz-placeholder{opacity:1;color:var(--white)}.signform input::placeholder{color:var(--white)}

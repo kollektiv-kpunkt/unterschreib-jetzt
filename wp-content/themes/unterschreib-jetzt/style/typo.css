@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;800&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+html {font-size: 112.5%;}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--black);
+}
+
+p {margin-top: 0.5rem;margin-bottom:0.5rem}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+h1{font-size: 4rem;}
+h2{font-size: 2.75rem;}
+h3{font-size: 2rem;}
+h4{font-size: 1.3rem;}
+h5{font-size: 1rem;}
+h1.red,h2.red,h3.red,h4.red,h5.red{color: var(--red);}
+
+b,strong {font-weight: 600;}
+small{font-size:0.8rem; line-height: 1.25;display:block}
+small.form-helper{
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+.buttonfont, .button, button, input{
+    font-size:1rem;
+    line-height: 0.9;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+bf-2 {
+    font-size:1.25rem;
+}
+.bf-3 {
+    font-size:1.5rem;
+}
+
+
+@media only screen and (max-width: 1500px) {
+    html {font-size: 100%;}
+}
+
+@media only screen and (max-width: 480px) {
+    h1{font-size: 2.75rem;}
+    h2{font-size: 2rem;}
+    h3{font-size: 1.3rem;}
+    h4{font-size: 1rem;}
+    h5{font-size: 1rem;}
+}
+
+a{color: var(--red)}

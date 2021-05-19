@@ -1,0 +1,64 @@
+{
+    "key": "group_60a5251fab95b",
+    "title": "03 Emails",
+    "fields": [
+        {
+            "key": "field_60a530da04e68",
+            "label": "Dankesmail Subject",
+            "name": "dankesmail_subject",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Danke für deine Unterschrift, [fname]!",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60a52524ac577",
+            "label": "Dankesemail",
+            "name": "dankesemail",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<h4>Liebe*r [fname],<\/h4>\r\n<p>Danke für deine Unterstützung unserer Initiative. Gemeinsam schaffen wir es auch in dieser schwierigen Zeit, die benötigten Unterschriften zu sammeln. Du hast uns zugesagt [nosig] zu sammeln. <strong>Danke dafür!<\/strong>\r\nDeinen persönlichen Unterschriftenbogen <a href='[bogenlink]'>findest du hier<\/a>.<\/p>\r\n<p>Nochmals danke für deinen Einsatz!<\/p>\r\n<p>Solidarisch,\r\n<strong>Das Komitee<\/strong><\/p>",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "modified": 1621438705
+}
