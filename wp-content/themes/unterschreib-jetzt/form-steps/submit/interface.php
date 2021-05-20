@@ -38,9 +38,11 @@ $pdf->AddPage();
 $pdf->Image("./img/bogen-" . $row["bogen_postID"] . ".jpg",0,0,210);
 $filename = "bogen-{$uuid}.pdf";
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"];
-$qr_url = $actual_link . "administration?view=erfassen&uuid=" . $uuid;
+$qr_url = $actual_link . "/administration?view=register&uuid=" . $uuid;
 $qrcode = new QRcode($qr_url, 'H');
 $qrcode->displayFPDF($pdf, 10, 118, 20);
+$pdf->SetFont('Arial','',6);
+$pdf->Text(10, 142.5, $uuid);
 
 $pdf->SetFont('Arial','',12);
 
