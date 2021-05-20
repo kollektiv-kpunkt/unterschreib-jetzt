@@ -4,7 +4,7 @@ require_once(__DIR__ . "/../../../../../wp-load.php");
 global $i18n;
 include __DIR__ . "/../../i18n/de.php";
 
-$uuid = $_GET["uuid"];
+$uuid = $_POST["uuid"];
 
 $row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}bogens` WHERE `bogen_UUID` = %s;", $uuid ), ARRAY_A );
 
@@ -15,24 +15,17 @@ require(__DIR__ . "/../../vendor/qrcode/qrcode.class.php");
 
 $uuid = $row["bogen_UUID"];
 
-if (!file_exists("./bogen-" . $row["bogen_postID"] . ".png")) {
+if (!file_exists("./img/bogen-" . $row["bogen_postID"] . ".jpg")) {
     $url = get_field("bogen", $row["bogen_postID"]);
-    $path = "/../../../../../../wp-content" . explode("/wp-content", $url)[1];
-    if (!is_readable($path)) {
-        echo 'file not readable';
-        echo $path;
-        exit;
-    }
-
-    echo $url;
-    $img = new Imagick($url);
-    $img->setResolution(480,640);
-    $img->setImageFormat("jpeg");
-    $img->writeImage("test.jpeg"); 
+    $imagick = new Imagick();
+    $imagick->setResolution(576,576);  
+    $imagick->readImage($url);
+    $imagick->resizeImage(2480,3508,Imagick::FILTER_CUBIC,1);
+    $imagick->setCompressionQuality(80);
+    $imagick->setImageFormat('jpg');
+    $imagick->writeImage("./img/bogen-" . $row["bogen_postID"] . ".jpg");
     exit;
 }
-
-$bogen_img = get_field("bogen", $row["bogen_postID"]);
 
 $pre_name = get_field("pre_name", $row["bogen_postID"]);
 $pre_birthday = get_field("pre_birthday", $row["bogen_postID"]);
@@ -42,7 +35,7 @@ $pre_ort = get_field("pre_ort", $row["bogen_postID"]);
 
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
-$pdf->Image($bogen_img,0,0,210);
+$pdf->Image("./img/bogen-" . $row["bogen_postID"] . ".jpg",0,0,210);
 $filename = "bogen-{$uuid}.pdf";
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"];
 $qr_url = $actual_link . "administration?view=erfassen&uuid=" . $uuid;

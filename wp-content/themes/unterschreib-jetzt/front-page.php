@@ -1,5 +1,11 @@
 <?php
-get_header()
+system( "which gs > /dev/null", $retval );
+if ( $retval != 0 ) {
+    echo("<h1>You need to install ghostscript</h1>");
+    phpinfo();
+    exit;
+}
+get_header();
 ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
