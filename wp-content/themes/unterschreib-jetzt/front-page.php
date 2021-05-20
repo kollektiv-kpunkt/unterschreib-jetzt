@@ -43,7 +43,7 @@ $mobi_short = str_replace($tags, $replace, $mobiText);
                 </div>
                 <div class="detail buttonfont">
                     <i class="ri-map-pin-2-line"></i>
-                    <span><a href="https://<?=the_field("webseite") ?>" target="_blank"><?= the_field("webseite") ?></a></span>
+                    <span><a href="https://<?=the_field("webseite") ?>" rel="noreferrer" target="_blank"><?= the_field("webseite") ?></a></span>
                 </div>
                 <div class="detail buttonfont">
                     <i class="ri-user-follow-line"></i>
@@ -74,10 +74,10 @@ $mobi_short = str_replace($tags, $replace, $mobiText);
                 <h2 class="red"><?= $i18n["help-us"] ?></h2>
                 <p class="cta-text"><?= the_field("mobi_cta") ?></p>
                 <div class="buttongrid">
-                    <a href="https://api.whatsapp.com/send?text=<?= $mobimsg_encode?>" target="_blank" class="button grid-button" id="whatsapp"><?= $i18n["share-whatsapp"] ?></a>
-                    <a href="https://t.me/share/url?url=<?=urlencode($current_url)?>&text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="telegram"><?= $i18n["share-telegram"] ?></a>
-                    <a href="https://twitter.com/intent/tweet?text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="twitter"><?= $i18n["share-twitter"] ?></a>
-                    <a href="#" target="_blank" class="button grid-button" id="email"><?= $i18n["share-email"] ?></a>
+                    <a rel="noreferrer" href="https://api.whatsapp.com/send?text=<?= $mobimsg_encode?>" target="_blank" class="button grid-button" id="whatsapp"><?= $i18n["share-whatsapp"] ?></a>
+                    <a rel="noreferrer" href="https://t.me/share/url?url=<?=urlencode($current_url)?>&text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="telegram"><?= $i18n["share-telegram"] ?></a>
+                    <a rel="noreferrer" href="https://twitter.com/intent/tweet?text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="twitter"><?= $i18n["share-twitter"] ?></a>
+                    <a href="#" class="button grid-button" id="email"><?= $i18n["share-email"] ?></a>
                 </div>
             </div>
             <div class="bottom-bar">
