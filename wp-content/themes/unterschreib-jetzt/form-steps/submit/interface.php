@@ -16,6 +16,12 @@ require(__DIR__ . "/../../vendor/qrcode/qrcode.class.php");
 $uuid = $row["bogen_UUID"];
 $bogen_img = get_field("bogen", $row["bogen_postID"]);
 
+$pre_name = get_field("pre_name", $row["bogen_postID"]);
+$pre_birthday = get_field("pre_birthday", $row["bogen_postID"]);
+$pre_strasse = get_field("pre_strasse", $row["bogen_postID"]);
+$pre_plz = get_field("pre_plz", $row["bogen_postID"]);
+$pre_ort = get_field("pre_ort", $row["bogen_postID"]);
+
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
 $pdf->Image($bogen_img,0,0,210);
@@ -24,6 +30,17 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 $qr_url = $actual_link . "administration?view=erfassen&uuid=" . $uuid;
 $qrcode = new QRcode($qr_url, 'H');
 $qrcode->displayFPDF($pdf, 10, 118, 20);
+
+$pdf->SetFont('Arial','',12);
+
+$pdf->Text($pre_name["x_wert"], $pre_name["y_wert"], ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"])));
+$pdf->Text($pre_birthday["x_wert"], $pre_birthday["y_wert"], date("Y", strtotime($row["bogen_birthday"])));
+$pdf->Text($pre_strasse["x_wert"], $pre_strasse["y_wert"], ucfirst(strtolower($row["bogen_address"])));
+$pdf->Text($pre_plz["x_wert"], $pre_plz["y_wert"], ucfirst(strtolower($row["bogen_plz"])));
+$pdf->Text($pre_ort["x_wert"], $pre_ort["y_wert"], ucfirst(strtolower($row["bogen_ort"])));
+
+
+
 $filepath = __DIR__ . "/../../bogen/" . $filename;
 $pdf->Output($filepath,'F');
 $attachment = $pdf->Output($filename,'S');

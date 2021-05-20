@@ -183,6 +183,7 @@ function createTables() {
         `bogen_address` varchar(255) NOT NULL,
         `bogen_plz` varchar(11) NOT NULL,
         `bogen_ort` varchar(255) NOT NULL,
+        `bogen_birthday` varchar(255) NOT NULL,
         `bogen_drucker` int(1) NOT NULL DEFAULT 0,
         `bogen_optin` int(1) NOT NULL DEFAULT 1,
         `bogen_nosig` int(11) NOT NULL,
