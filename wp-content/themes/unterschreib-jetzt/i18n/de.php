@@ -54,6 +54,10 @@ $i18n = array(
     "donate-50" => "50 Fr. spenden",
     "donate-80" => "80 Fr. spenden",
 
+    // EMAIL
+    "email-header" => "Danke für deine Unterschrift",
+    "email-download-bogen" => "Bogen herunterladen",
+
     // MISC
     "close" => "Schliessen",
     "back" => "Zurück",

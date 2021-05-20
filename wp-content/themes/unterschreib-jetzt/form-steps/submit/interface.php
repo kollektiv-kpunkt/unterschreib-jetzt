@@ -4,7 +4,7 @@ require_once(__DIR__ . "/../../../../../wp-load.php");
 global $i18n;
 include __DIR__ . "/../../i18n/de.php";
 
-$uuid = $_POST["uuid"];
+$uuid = $_GET["uuid"];
 
 $row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}bogens` WHERE `bogen_UUID` = %s;", $uuid ), ARRAY_A );
 
@@ -14,6 +14,24 @@ require(__DIR__ . "/../../vendor/fpdf/fpdf.php");
 require(__DIR__ . "/../../vendor/qrcode/qrcode.class.php");
 
 $uuid = $row["bogen_UUID"];
+
+if (!file_exists("./bogen-" . $row["bogen_postID"] . ".png")) {
+    $url = get_field("bogen", $row["bogen_postID"]);
+    $path = "/../../../../../../wp-content" . explode("/wp-content", $url)[1];
+    if (!is_readable($path)) {
+        echo 'file not readable';
+        echo $path;
+        exit;
+    }
+
+    echo $url;
+    $img = new Imagick($url);
+    $img->setResolution(480,640);
+    $img->setImageFormat("jpeg");
+    $img->writeImage("test.jpeg"); 
+    exit;
+}
+
 $bogen_img = get_field("bogen", $row["bogen_postID"]);
 
 $pre_name = get_field("pre_name", $row["bogen_postID"]);

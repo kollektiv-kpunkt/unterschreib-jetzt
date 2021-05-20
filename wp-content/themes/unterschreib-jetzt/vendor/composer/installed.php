@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '0.1.x-dev',
-    'version' => '0.1.9999999.9999999-dev',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '09650f1ebf8a8a1c629229a1fa05c636d192405d',
+    'reference' => '996e102d9eb8ea12a5cab8736661c9c7d1a91272',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '0.1.x-dev',
-      'version' => '0.1.9999999.9999999-dev',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '09650f1ebf8a8a1c629229a1fa05c636d192405d',
+      'reference' => '996e102d9eb8ea12a5cab8736661c9c7d1a91272',
     ),
     'phpmailer/phpmailer' => 
     array (

@@ -6,7 +6,7 @@
             "key": "field_60a5245c404f5",
             "label": "Bogen Bild",
             "name": "bogen",
-            "type": "image",
+            "type": "file",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -16,15 +16,10 @@
                 "id": ""
             },
             "return_format": "url",
-            "preview_size": "medium",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
             "min_size": "",
-            "max_width": "",
-            "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "pdf"
         },
         {
             "key": "field_60a5701e5da57",
@@ -394,5 +389,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621455913
+    "modified": 1621513169
 }
