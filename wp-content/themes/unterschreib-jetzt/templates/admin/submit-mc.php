@@ -37,11 +37,12 @@ $client->setConfig([
 $added = 0;
 $updated = 0;
 $errors = 0;
+$errorText = array();
 
 foreach ($bogens as $bogen):
 
     try {
-        $client->lists->addListMember($mc_listID, [
+        $client->lists->setListMember($mc_listID, md5(strtolower($bogen->bogen_email)), [
             "email_address" => $bogen->bogen_email,
             'merge_fields' => [
                 "FNAME" => $bogen->bogen_fname,
@@ -50,43 +51,26 @@ foreach ($bogens as $bogen):
                     "addr1" => $bogen->bogen_address,
                     "city" => $bogen->bogen_ort,
                     "zip" => $bogen->bogen_plz,
-                    "country" => "CH"
-                    ),
+                    "country" => 'CH'
+                ),
                 "PHONE" => $bogen->bogen_phone
             ],
-            "status" => "subscribed",
+            "status_if_new" => "subscribed",
         ]);
         $added++;
     } catch (GuzzleHttp\Exception\ClientException $e) {
-        $response = json_decode($e->getResponse()->getBody()->getContents());
-        if ($response->title == "Member Exists") {
-            $exec = $client->lists->setListMember($mc_listID, md5(strtolower($bogen->bogen_email)), [
-                "email_address" => $bogen->bogen_email,
-                'merge_fields' => [
-                    "FNAME" => $bogen->bogen_fname,
-                    "LNAME" => $bogen->bogen_lname,
-                    "ADDRESS" => array(
-                        "addr1" => $bogen->bogen_address,
-                        "city" => $bogen->bogen_ort,
-                        "zip" => $bogen->bogen_plz,
-                        "country" => "CH"
-                    ),
-                    "PHONE" => $bogen->bogen_phone
-                ],
-                "status_if_new" => "subscribed",
-            ]);
-            $updated++;
-        } else {
-            $errors++;
-        }
+        $error_response = $e;
+        array_push($errorText, $error_response);
+        $errors++;
     }
 
 endforeach;
 
 $return = array(
     "status" => 200,
-    "text" => "{$added} records added, {$updated} records updated, {$errors} errors thrown",
-    "type" => "success"
+    "text" => "{$added} records added/updated, {$errors} errors thrown",
+    "type" => "success",
+    "errors" => $errorText
 );
 header('Content-type: application/json');
 echo(json_encode($return));

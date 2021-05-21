@@ -47,6 +47,7 @@ jQuery("#mailchimp-form").submit(function(e){
             } else if (response.type == "success") {
                 notyf.success(response.text);
                 form.children(".lds-ellipsis").removeClass("show");
+                console.log(response.errors)
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
