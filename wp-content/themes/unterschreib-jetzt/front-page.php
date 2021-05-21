@@ -1,6 +1,11 @@
 <?php
-system( "which gs > /dev/null", $retval );
-if ( $retval != 0 ) {
+
+if (!extension_loaded('imagick'))
+    echo 'imagick not installed';
+
+system( "gs", $retval );
+
+if ( $retval == "" ) {
     echo("<h1>You need to install ghostscript</h1>");
     phpinfo();
     exit;
