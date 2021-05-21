@@ -48,6 +48,12 @@ if ($_GET["view"] == "register" && !isset($_GET["uuid"])) {
         <li class="nav-item<?php print (!isset($_GET["view"])) ? " active" : "" ?>">
             <a class="nav-link" href="/administration">Bogen List</a>
         </li>
+        <li class="nav-item<?php print ($_GET["view"] == "mysheets") ? " active" : "" ?>">
+            <a class="nav-link" href="/administration?view=mysheets">My sheets</a>
+        </li>
+        <li class="nav-item<?php print ($_GET["view"] == "mailchimp") ? " active" : "" ?>">
+            <a class="nav-link" href="/administration?view=mailchimp">Mailchimp</a>
+        </li>
         </ul>
         <a href="?view=register" class="btn btn-success my-2 my-sm-0">Register Sheet</a>
     </div>

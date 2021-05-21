@@ -16,5 +16,13 @@ if ($_GET["view"] == "register") {
     get_template_part("templates/admin/register");
 }
 
+if ($_GET["view"] == "mysheets") {
+    get_template_part("templates/admin/my-sheets");
+}
+
+if ($_GET["view"] == "mailchimp") {
+    get_template_part("templates/admin/mailchimp");
+}
+
 get_footer("admin");
 ?>

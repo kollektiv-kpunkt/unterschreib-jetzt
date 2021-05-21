@@ -64,7 +64,7 @@ $results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}sheets WHERE sheet_
             <th scope="row"><?= $result->sheet_ID ?></th>
             <td><?= $result->sheet_Nosig?></td>
             <td><?= get_userdata($result->sheet_User)->user_login?></td>
-            <td><a href="#" data-uuid="<?= $result->sheet_UUID ?>" class="delete-sheet">Löschen</a></td>
+            <td><a href="#" data-uuid="<?= $result->sheet_UUID ?>" class="delete-sheet">Delete</a></td>
         </tr>
     <?php
     endforeach;
