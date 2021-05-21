@@ -4,8 +4,6 @@ global $wpdb;
 
 $results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}bogens");
 
-// print_r($results);
-
 ?>
 <p class="h1 mb-4">Pledges</p>
 <table id="bogen-list" class="table table-striped table-bordered" style="width: 100%">

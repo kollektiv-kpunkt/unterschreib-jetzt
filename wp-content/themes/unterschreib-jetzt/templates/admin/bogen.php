@@ -2,7 +2,7 @@
 $uuid = $_GET["uuid"];
 $bogen = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}bogens` WHERE `bogen_UUID` = %s;", $uuid ));
 
-$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}sheets WHERE sheet_BogenID = {$bogen->bogen_UUID}");
+$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}sheets WHERE sheet_BogenID = '{$uuid}'");
 ?>
 
 <p class="lead" style="margin-bottom: 0"><em>UUID: <?= $bogen->bogen_UUID ?></em></p>
@@ -31,7 +31,15 @@ $results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}sheets WHERE sheet_
     </tr>
     <tr>
         <td><b>Returned:</b></td>
-        <td><?= $bogen->bogen_returned ?></td>
+        <td id="bogen_returned"><?= $bogen->bogen_returned ?></td>
+    </tr>
+    <tr>
+        <td><b>Missing:</b></td>
+        <td id="bogen_notreturned"><?= $bogen->bogen_notreturned ?></td>
+    </tr>
+    <tr>
+        <td><b>Optin:</b></td>
+        <td><?= $bogen->bogen_optin ?></td>
     </tr>
 </table>
 
@@ -45,16 +53,18 @@ $results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}sheets WHERE sheet_
             <th scope="col">Sheet ID</th>
             <th scope="col">Signatures</th>
             <th scope="col">User</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
     <?php
 
     foreach ($results as $result) : ?>
-        <tr>
+        <tr id="row-<?= $result->sheet_UUID ?>">
             <th scope="row"><?= $result->sheet_ID ?></th>
             <td><?= $result->sheet_Nosig?></td>
             <td><?= get_userdata($result->sheet_User)->user_login?></td>
+            <td><a href="#" data-uuid="<?= $result->sheet_UUID ?>" class="delete-sheet">Löschen</a></td>
         </tr>
     <?php
     endforeach;
@@ -77,4 +87,38 @@ jQuery(document).ready( function () {
             "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>"
     });
 } );
+
+jQuery(".delete-sheet").click(function(e) {
+    e.preventDefault();
+    var uuid = jQuery(this).attr("data-uuid");
+    var proceed = confirm(`Are you sure you want to delete sheet #${uuid}?`);
+    if (proceed) {
+        jQuery.ajax({
+            url : "/wp-content/themes/unterschreib-jetzt/templates/admin/delete.php",
+            type: "POST",
+            data : { 
+                type: "sheet", 
+                uuid: uuid 
+            },
+            success: function(response, textStatus, jqXHR) {
+                var notyf = new Notyf();
+                if (response.type == "error") {
+                    notyf.error(response.text);
+                } else if (response.type == "success") {
+                    notyf.success(response.text);
+                    jQuery("#row-" + uuid).remove();
+                    jQuery("td#bogen_returned").text(response.returned);
+                    jQuery("td#bogen_notreturned").text(response.notreturned);
+
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
+    }
+})
+
 </script>

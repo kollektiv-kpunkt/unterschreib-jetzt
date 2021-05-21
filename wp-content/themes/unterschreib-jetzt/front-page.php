@@ -1,15 +1,22 @@
 <?php
 
-if (!extension_loaded('imagick'))
-    echo 'imagick not installed';
-
-system( "gs", $retval );
-
-if ( $retval == "" ) {
-    echo("<h1>You need to install ghostscript</h1>");
+if (!extension_loaded('imagick')) {
+    echo "<h1>You need to activate imagick extension</h1>";
     phpinfo();
     exit;
 }
+
+// system( "gs", $retval );
+// if ( $retval == "" ) {
+//     echo("<h1>You need to install ghostscript</h1>");
+//     exit;
+// }
+
+if (!file_exists(__DIR__ . "/config/config.php")) {
+    echo("<h1>You need to add Mailserver Config ('/wp-content/themes/unterschreib-jetzt/config/config.example.php' for reference)</h1>");
+    exit;
+}
+
 get_header();
 ?>
 
