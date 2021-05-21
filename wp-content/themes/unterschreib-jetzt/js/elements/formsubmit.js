@@ -33,15 +33,15 @@ var submitForm = function submitForm() {
                                     type: "POST",
                                     url: `wp-content/themes/unterschreib-jetzt/form-steps/submit/interface.php`,
                                     data: { uuid: response.uuid },
-                                    success: function(re) {
-                                        console.log(re)
-                                    }
+                                    // success: function(re) {
+                                    //     console.log(re)
+                                    // }
                                 });
                                 jQuery("#fname").text(response.fname);
                             }
                         });
                     }
-                    console.log(response)
+                    // console.log(response)
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR);
