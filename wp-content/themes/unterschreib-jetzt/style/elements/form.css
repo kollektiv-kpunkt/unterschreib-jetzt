@@ -94,6 +94,21 @@ input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:b
 .lds-ellipsis.show {
     visibility: visible;
 }
+
+@media only screen and (max-width: 1000px) {
+    .lds-ellipsis {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin-top: 0.5rem;
+        visibility: visible;
+    }
+    .lds-ellipsis.show {
+        display: inline-block;
+    }
+}
+
 .lds-ellipsis div {
     position: absolute;
     top: 16px;

@@ -93,8 +93,9 @@ $mobi_short = str_replace($tags, $replace, $mobiText);
                 <div class="buttongrid">
                     <a rel="noreferrer" href="https://api.whatsapp.com/send?text=<?= $mobimsg_encode?>" target="_blank" class="button grid-button" id="whatsapp"><?= $i18n["share-whatsapp"] ?></a>
                     <a rel="noreferrer" href="https://t.me/share/url?url=<?=urlencode($current_url)?>&text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="telegram"><?= $i18n["share-telegram"] ?></a>
+                    <a rel="noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=<?=urlencode($current_url)?>" target="_blank" class="button grid-button" id="facebook"><?= $i18n["share-fb"] ?></a>
                     <a rel="noreferrer" href="https://twitter.com/intent/tweet?text=<?= $mobimsg_encode ?>" target="_blank" class="button grid-button" id="twitter"><?= $i18n["share-twitter"] ?></a>
-                    <a href="#" class="button grid-button" id="email"><?= $i18n["share-email"] ?></a>
+                    <a href="mailto:''?body=<?= urldecode($mobimsg_encode)?>" class="button grid-button fullwidth" id="email"><?= $i18n["share-email"] ?></a>
                 </div>
             </div>
             <div class="bottom-bar">
