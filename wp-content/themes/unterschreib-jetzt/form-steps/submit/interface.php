@@ -46,11 +46,11 @@ $pdf->Text(10, 142.5, $uuid);
 
 $pdf->SetFont('Arial','',12);
 
-$pdf->Text($pre_name["x_wert"], $pre_name["y_wert"], ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"])));
+$pdf->Text($pre_name["x_wert"], $pre_name["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"]))));
 $pdf->Text($pre_birthday["x_wert"], $pre_birthday["y_wert"], date("Y", strtotime($row["bogen_birthday"])));
-$pdf->Text($pre_strasse["x_wert"], $pre_strasse["y_wert"], ucfirst(strtolower($row["bogen_address"])));
+$pdf->Text($pre_strasse["x_wert"], $pre_strasse["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_address"]))));
 $pdf->Text($pre_plz["x_wert"], $pre_plz["y_wert"], ucfirst(strtolower($row["bogen_plz"])));
-$pdf->Text($pre_ort["x_wert"], $pre_ort["y_wert"], ucfirst(strtolower($row["bogen_ort"])));
+$pdf->Text($pre_ort["x_wert"], $pre_ort["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_ort"]))));
 
 
 
