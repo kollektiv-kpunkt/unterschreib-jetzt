@@ -57,6 +57,10 @@ $i18n = array(
     // EMAIL
     "email-header" => "Danke für deine Unterschrift",
     "email-download-bogen" => "Bogen herunterladen",
+    
+    // EMAIL NO PRINTER
+    "email-noprint-subject" => "Bitte einen Bogen verschicken!",
+    "email-noprint-cont" => "<p>Hallo!</p><p>[fname] [lname] möchte gerne eure Initiative unterschreiben, hat aber keinen Drucker.</p>Im Anhang findet ihr den Unterschriftenbogen und einen Brief, den du unterschreiben und gleich verschicken kannst. Mach das bitte!</p><p>Tschäse</p>",
 
     // MISC
     "close" => "Schliessen",
