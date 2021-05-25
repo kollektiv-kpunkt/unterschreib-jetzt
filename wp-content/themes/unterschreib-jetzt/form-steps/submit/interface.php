@@ -9,7 +9,7 @@ $uuid = $_POST["uuid"];
 $row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}bogens` WHERE `bogen_UUID` = %s;", $uuid ), ARRAY_A );
 
 //FPDF
-require(__DIR__ . "/../../vendor/fpdf/fpdf.php");
+require(__DIR__ . "/../../vendor/fpdf/tfpdf.php");
 //QR Code Generator
 require(__DIR__ . "/../../vendor/qrcode/qrcode.class.php");
 
@@ -32,7 +32,7 @@ $pre_strasse = get_field("pre_strasse", $row["bogen_postID"]);
 $pre_plz = get_field("pre_plz", $row["bogen_postID"]);
 $pre_ort = get_field("pre_ort", $row["bogen_postID"]);
 
-$pdf = new FPDF('P','mm','A4');
+$pdf = new tFPDF('P','mm','A4');
 $pdf->AddPage();
 $pdf->Image("./img/bogen-" . $row["bogen_postID"] . ".jpg",0,0,210);
 $filename = "bogen-{$uuid}.pdf";
@@ -45,11 +45,11 @@ $pdf->Text(10, 142.5, $uuid);
 
 $pdf->SetFont('Arial','',12);
 
-$pdf->Text($pre_name["x_wert"], $pre_name["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"]))));
+$pdf->Text($pre_name["x_wert"], $pre_name["y_wert"], ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"])));
 $pdf->Text($pre_birthday["x_wert"], $pre_birthday["y_wert"], date("Y", strtotime($row["bogen_birthday"])));
-$pdf->Text($pre_strasse["x_wert"], $pre_strasse["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_address"]))));
+$pdf->Text($pre_strasse["x_wert"], $pre_strasse["y_wert"], ucfirst(strtolower($row["bogen_address"])));
 $pdf->Text($pre_plz["x_wert"], $pre_plz["y_wert"], ucfirst(strtolower($row["bogen_plz"])));
-$pdf->Text($pre_ort["x_wert"], $pre_ort["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_ort"]))));
+$pdf->Text($pre_ort["x_wert"], $pre_ort["y_wert"], ucfirst(strtolower($row["bogen_ort"])));
 
 
 
@@ -526,7 +526,7 @@ if ($row["bogen_drucker"] == 1):
     $drucken_name = get_field("drucken_name", $row["bogen_postID"]);
     $drucken_address = get_field("drucken_address", $row["bogen_postID"]);
 
-    $pdf = new FPDF('P','mm','A4');
+    $pdf = new tFPDF('P','mm','A4');
     $pdf->AddPage();
     $pdf->Image("./img/brief-" . $row["bogen_postID"] . ".jpg",0,0,210);
     $filename_noprint = "brief-{$uuid}.pdf";
@@ -534,10 +534,10 @@ if ($row["bogen_drucker"] == 1):
 
     $pdf->SetFont('Arial','',12);
 
-    $pdf->Text($drucken_name["x_wert"], $drucken_name["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"]))));
-    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"], iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"]))));
-    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"] + 5, iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_address"]))));
-    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"] + 10, iconv('UTF-8', 'windows-1252', ucfirst(strtolower($row["bogen_plz"])) . " " . ucfirst(strtolower($row["bogen_ort"]))));
+    $pdf->Text($drucken_name["x_wert"], $drucken_name["y_wert"], ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"])));
+    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"], ucfirst(strtolower($row["bogen_fname"])) . " " . ucfirst(strtolower($row["bogen_lname"])));
+    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"] + 5, ucfirst(strtolower($row["bogen_address"])));
+    $pdf->Text($drucken_address["x_wert"], $drucken_address["y_wert"] + 10, ucfirst(strtolower($row["bogen_plz"])) . " " . ucfirst(strtolower($row["bogen_ort"])));
 
     $attachment_noprint = $pdf->Output($filename_noprint,'S');
 
