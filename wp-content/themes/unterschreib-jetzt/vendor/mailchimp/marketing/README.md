@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://mailchimp.com/developer/">
-    <img src="https://raw.githubusercontent.com/mailchimp/mailchimp-client-lib-codegen/master/resources/images/mcdev-banner.png" alt="Mailchimp Developer" width="100%" height="auto">
+    <img src="https://raw.githubusercontent.com/mailchimp/mailchimp-client-lib-codegen/main/resources/images/mcdev-banner.png" alt="Mailchimp Developer" width="100%" height="auto">
   </a>
 </p>
 
@@ -304,6 +304,7 @@ All URIs are relative to *https://server.api.mailchimp.com/3.0*
 | **lists.createListWebhook** | /lists/{list_id}/webhooks |
 | **lists.listSegments** | /lists/{list_id}/segments |
 | **lists.setListMember** | /lists/{list_id}/members/{subscriber_hash} |
+| **lists.tagSearch** | /lists/{list_id}/tag-search |
 | **ping.get** | /ping |
 | **reporting.getFacebookAdsReportAll** | /reporting/facebook-ads |
 | **reporting.getFacebookAdReport** | /reporting/facebook-ads/{outreach_id} |
@@ -359,15 +360,15 @@ Mailchimp Marketing libraries are available in the following languages:
 
 <div>
   <a href="https://github.com/mailchimp/mailchimp-marketing-node">
-  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/master/resources/images/lang_node.png?raw=true" width="44" height="44">
+  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/main/resources/images/lang_node.png?raw=true" width="44" height="44">
   </a>
   <a href="https://github.com/mailchimp/mailchimp-marketing-php">
-  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/master/resources/images/lang_php.png?raw=true" width="44" height="44">
+  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/main/resources/images/lang_php.png?raw=true" width="44" height="44">
   </a>
   <a href="https://github.com/mailchimp/mailchimp-marketing-ruby">
-  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/master/resources/images/lang_ruby.png?raw=true" width="44" height="44">
+  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/main/resources/images/lang_ruby.png?raw=true" width="44" height="44">
   </a>
   <a href="https://github.com/mailchimp/mailchimp-marketing-python">
-  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/master/resources/images/lang_python.png?raw=true" width="44" height="44">
+  <img src="https://github.com/mailchimp/mailchimp-client-lib-codegen/blob/main/resources/images/lang_python.png?raw=true" width="44" height="44">
   </a>
 </div>

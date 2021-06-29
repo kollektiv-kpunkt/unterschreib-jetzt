@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '342d5d62f60dfdc827f526ce30b894df2c99a41b',
+    'reference' => 'cb7fb7e818cb459a29ae0f818cf81e005da098e5',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '342d5d62f60dfdc827f526ce30b894df2c99a41b',
+      'reference' => 'cb7fb7e818cb459a29ae0f818cf81e005da098e5',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -49,21 +49,21 @@
     ),
     'mailchimp/marketing' => 
     array (
-      'pretty_version' => '3.0.42',
-      'version' => '3.0.42.0',
+      'pretty_version' => '3.0.51',
+      'version' => '3.0.51.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7c06e6522f0e0a43b4eed9b49c44e67b86a72dde',
+      'reference' => '223e8d740c5e60a24b802ecc1ad3b416f5cc77eb',
     ),
     'phpmailer/phpmailer' => 
     array (
-      'pretty_version' => 'v6.4.1',
-      'version' => '6.4.1.0',
+      'pretty_version' => 'v6.5.0',
+      'version' => '6.5.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
+      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
     'psr/http-client' => 
     array (

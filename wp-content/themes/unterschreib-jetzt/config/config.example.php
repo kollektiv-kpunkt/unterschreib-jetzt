@@ -6,6 +6,6 @@ $config = array(
     "email-username" => "",
     "email-pw" => "",
     "email-host" => "",
-    "email-port" => ,
+    "email-port" => "",
 
 );
